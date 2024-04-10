@@ -1,42 +1,39 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const namesGroups = [
-        ["名前1-1", "名前1-2", "名前1-3"], // グループ1
-        ["名前2-1", "名前2-2", "名前2-3"],  // グループ2
-        // 必要に応じて更にグループを追加
-    ];
+document.addEventListener('DOMContentLoaded', function() {
+    const groupA = ['名前A1', '名前A2', '名前A3', /* 他の名前を追加 */];
+    const groupB = ['名前B1', '名前B2', '名前B3', /* 他の名前を追加 */];
+    const groupC = ['名前C1', '名前C2', '名前C3', /* 他の名前を追加 */];
 
-    const namesContainer = document.getElementById('namesContainer');
-    const columns = document.createElement('div');
-    columns.className = 'columns';
+    const groupAContainer = document.getElementById('groupA');
+    const groupBContainer = document.getElementById('groupB');
+    const groupCContainer = document.getElementById('groupC');
 
-    namesGroups.forEach(group => {
-        const column = document.createElement('div');
-        column.className = 'column';
-        group.forEach(name => {
-            const label = document.createElement('label');
-            label.className = 'checkbox';
-            const input = document.createElement('input');
-            input.type = 'checkbox';
-            input.className = 'name-checkbox';
-            input.value = name;
-            label.appendChild(input);
-            label.append(` ${name}`);
-            column.appendChild(label);
-        });
-        columns.appendChild(column);
+    groupA.forEach(name => {
+        const checkbox = createCheckbox(name);
+        groupAContainer.appendChild(checkbox);
     });
 
-    namesContainer.appendChild(columns);
+    groupB.forEach(name => {
+        const checkbox = createCheckbox(name);
+        groupBContainer.appendChild(checkbox);
+    });
 
-    const confirmButton = document.getElementById('confirmButton');
-    confirmButton.addEventListener('click', () => {
-        const selectedNames = [];
-        document.querySelectorAll('.name-checkbox:checked').forEach(checkbox => {
-            selectedNames.push(checkbox.value);
-        });
+    groupC.forEach(name => {
+        const checkbox = createCheckbox(name);
+        groupCContainer.appendChild(checkbox);
+    });
+
+    document.getElementById('confirmBtn').addEventListener('click', () => {
+        const selectedNames = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(el => el.value);
         const namesText = selectedNames.join('\n');
-        navigator.clipboard.writeText(namesText)
-            .then(() => alert('クリップボードにコピーしました: \n' + namesText))
-            .catch(err => console.error('クリップボードへのコピーに失敗しました:', err));
+        navigator.clipboard.writeText(namesText).then(() => {
+            alert('クリップボードにコピーしました。');
+        });
     });
 });
+
+function createCheckbox(name) {
+    const label = document.createElement('label');
+    label.classList.add('checkbox');
+    label.innerHTML = `<input type="checkbox" value="${name}"> ${name}`;
+    return label;
+}

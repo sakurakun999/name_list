@@ -7,16 +7,34 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="script.js"></script>
 </head>
 
 <body>
     <section class="section">
-        <div class="container" id="namesContainer">
-            <!-- 名前の選択部分はここに動的に挿入されます -->
+        <div class="columns">
+            <div class="column">
+                <h2 class="is-size-4">グループA</h2>
+                <div id="groupA" class="list">
+                    <!-- JavaScriptで名前を挿入 -->
+                </div>
+            </div>
+            <div class="column">
+                <h2 class="is-size-4">グループB</h2>
+                <div id="groupB" class="list">
+                    <!-- JavaScriptで名前を挿入 -->
+                </div>
+            </div>
+            <div class="column">
+                <h2 class="is-size-4">グループC</h2>
+                <div id="groupC" class="list">
+                    <!-- JavaScriptで名前を挿入 -->
+                </div>
+            </div>
         </div>
-        <button class="button is-primary" id="confirmButton">確定</button>
+        <button id="confirmBtn" class="button is-primary">確定</button>
+
     </section>
 </body>
+<script src="script.js"></script>
 
 </html>
