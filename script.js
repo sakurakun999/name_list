@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const groupA = ['名前A1', '名前A2', '名前A3', /* 他の名前を追加 */];
-    const groupB = ['名前B1', '名前B2', '名前B3', /* 他の名前を追加 */];
-    const groupC = ['名前C1', '名前C2', '名前C3', /* 他の名前を追加 */];
+document.addEventListener('DOMContentLoaded', function () {
+    const groupA = ['hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge',/* 他の名前を追加 */];
+    const groupB = ['hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge',/* 他の名前を追加 */];
+    const groupC = ['hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge', 'hoge',/* 他の名前を追加 */];
 
     const groupAContainer = document.getElementById('groupA');
     const groupBContainer = document.getElementById('groupB');
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedNames = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(el => el.value);
         const namesText = selectedNames.join('\n');
         navigator.clipboard.writeText(namesText).then(() => {
-            alert('クリップボードにコピーしました。');
+            addToClipboard()
         });
     });
 });
@@ -36,4 +36,17 @@ function createCheckbox(name) {
     label.classList.add('checkbox');
     label.innerHTML = `<input type="checkbox" value="${name}"> ${name}`;
     return label;
+}
+
+function addToClipboard() {
+    // ポップアップを表示
+    const popup = document.getElementById("popup");
+    popup.classList.remove("hide");
+    popup.style.opacity = 1;
+
+    // 3秒後にポップアップを非表示にする
+    setTimeout(() => {
+        popup.style.opacity = 0;
+        setTimeout(() => popup.classList.add("hide"), 500);
+    }, 3000);
 }
