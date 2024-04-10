@@ -1,39 +1,42 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <title>名前選択</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="script.js"></script>
 </head>
-<body>
 
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column">
-                <label class="checkbox">
-                    <input type="checkbox" class="name-checkbox" value="名前1">
-                    名前1
-                </label>
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <label class="checkbox">
+                        <input type="checkbox" class="name-checkbox" value="名前1">
+                        名前1
+                    </label>
+                </div>
+                <div class="column">
+                    <label class="checkbox">
+                        <input type="checkbox" class="name-checkbox" value="名前2">
+                        名前2
+                    </label>
+                </div>
+                <div class="column">
+                    <label class="checkbox">
+                        <input type="checkbox" class="name-checkbox" value="名前3">
+                        名前3
+                    </label>
+                </div>
             </div>
-            <div class="column">
-                <label class="checkbox">
-                    <input type="checkbox" class="name-checkbox" value="名前2">
-                    名前2
-                </label>
-            </div>
-            <div class="column">
-                <label class="checkbox">
-                    <input type="checkbox" class="name-checkbox" value="名前3">
-                    名前3
-                </label>
-            </div>
+            <button class="button is-primary" id="confirmButton">確定</button>
         </div>
-        <button class="button is-primary" id="confirmButton">確定</button>
-    </div>
-</section>
+    </section>
 
 </body>
+
 </html>
